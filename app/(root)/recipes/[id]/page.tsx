@@ -1,3 +1,5 @@
+import Collection from "@/components/recipes/Collection";
+import DeleteRecipeBtn from "@/components/recipes/DeleteRecipeBtn";
 import {
   getRelatedRecipesByCategory,
   getRecipeById,
@@ -6,8 +8,9 @@ import { IIngredient, IStep } from "@/lib/database/models/recipe.model";
 import { formatDateString, multiFormatDateString } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import { auth } from "@clerk/nextjs";
-import { Clock, CookingPot, Utensils } from "lucide-react";
+import { Clock, CookingPot, FileEdit, Utensils } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const RecipePage = async ({
   params: { id },
@@ -150,33 +153,60 @@ const RecipePage = async ({
           </div>
           <div>
             <h2 className="text-xl font-serif text-slate-800 pb-5">Method</h2>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-y-7">
               {recipe.instructions.map((instruction: IStep, index: number) => (
-                <li key={instruction.step}>
-                  <p className="text-slate-800 font-serif">
-                    <span className="font-light text-slate-500">{`Step ${
-                      index + 1
-                    }:`}</span>
-                    &nbsp; &nbsp; {instruction.step}
+                <li
+                  key={instruction.step}
+                  className="flex flex-row justify-between w-full"
+                >
+                  <p className="font-light text-slate-500 font-serif w-[120px]">
+                    Step {index + 1}
+                  </p>
+                  <p className="text-slate-800 font-serif max-w-[550px]">
+                    {instruction.step}
                   </p>
                 </li>
               ))}
             </ul>
+            {recipe.notes && (
+              <div className="wrapper !pb-20 mt-12">
+                <h3 className="text-xl font-serif text-slate-800 pb-2">
+                  Additional Notes
+                </h3>
+                <p className="font-light text-slate-600">{recipe.notes}</p>
+              </div>
+            )}
           </div>
         </div>
 
-        {recipe.notes && (
-          <div className="wrapper !pb-20">
-            <h3 className="text-xl font-serif text-slate-800 pb-2">
-              Additional Notes
-            </h3>
-            <p className="font-light text-slate-600">{recipe.notes}</p>
+        {isRecipeAuthor && (
+          <div className="wrapper flex flex-row gap-3 items-center !pb-14">
+            <Link
+              href={`/recipes/${recipe._id}/update`}
+              className="flex flex-row gap-2 items-center bg-gradient-to-tr from-slate-800 to-slate-600 w-fit px-6 py-2 rounded-md text-slate-100 hover:from-slate-700 hover:to-slate-500 transition-all"
+            >
+              <FileEdit size={18} /> Edit Recipe
+            </Link>
+
+            <DeleteRecipeBtn recipeId={recipe._id} />
           </div>
         )}
       </section>
 
-      <section className="wrapper">
-        <h3>Similar Recipes</h3>
+      <section className="wrapper mb-10">
+        <h3 className="py-5 text-lg font-medium text-slate-800">
+          Similar Recipes
+        </h3>
+
+        <Collection
+          data={relatedRecipes?.data}
+          emptyTitle="No Recipes Found"
+          emptyStateSubtext="Come back later"
+          collectionType="All_Recipes"
+          limit={3}
+          page={searchParams.page as string}
+          totalPages={relatedRecipes?.totalPages}
+        />
       </section>
     </article>
   );

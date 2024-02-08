@@ -1,3 +1,5 @@
+import { IRecipe } from "@/lib/database/models/recipe.model";
+
 export type Ingredient = {
   measurement: string;
   name: string;
@@ -133,4 +135,21 @@ export type RemoveUrlQueryParams = {
 export type SearchParamProps = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export type CollectionProps = {
+  data: IRecipe[];
+  emptyTitle: string;
+  emptyStateSubtext: string;
+  limit: number;
+  page: number | string;
+  totalPages?: number;
+  urlParamName?: string;
+  collectionType?: "Recipes_Created" | "My_Recipes" | "All_Recipes";
+};
+
+export type PaginationProps = {
+  page: number | string;
+  totalPages: number;
+  urlParamName?: string;
 };

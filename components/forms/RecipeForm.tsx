@@ -42,7 +42,7 @@ interface Instruction {
 }
 
 const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
-  const maxIngredients = 15;
+  const maxIngredients = 25;
   const maxInstructions = 10;
 
   const [files, setFiles] = useState<File[]>([]);

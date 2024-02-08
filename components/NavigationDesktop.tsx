@@ -51,7 +51,7 @@ const NavigationDesktop = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/recipes?category=Dinner for 2"
                   className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-rose-500"
                 >
                   <div>
@@ -62,7 +62,7 @@ const NavigationDesktop = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/recipes?category=Affordable"
                   className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-emerald-500"
                 >
                   <div>
@@ -73,7 +73,7 @@ const NavigationDesktop = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/recipes?category=Lunch"
                   className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-orange-500"
                 >
                   <div>
@@ -84,7 +84,7 @@ const NavigationDesktop = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/recipes?category=Dinner"
                   className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-indigo-500"
                 >
                   <div>
@@ -95,7 +95,7 @@ const NavigationDesktop = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/recipes?category=Fast"
                   className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-yellow-500"
                 >
                   <div>
@@ -106,7 +106,7 @@ const NavigationDesktop = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="/recipes?category=Healthy"
                   className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-red-500"
                 >
                   <div>
