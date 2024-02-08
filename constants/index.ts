@@ -15,3 +15,18 @@ export const carouselImages = [
     path: "imageThree.jpg",
   },
 ];
+
+export const recipeDefaultValues = {
+  title: "",
+  description: "",
+  imageUrl: "",
+  ingredients: [],
+  instructions: [],
+  prepTime: "",
+  cookTime: "",
+  servingSize: "",
+  isVegetarian: false,
+  isVegan: false,
+  notes: "",
+  categoryId: "",
+};

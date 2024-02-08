@@ -2,6 +2,7 @@ import { LogIn, Plus, UtensilsCrossed } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { SignedOut } from "@clerk/nextjs";
 
 const CreateRecipes = () => {
   return (
@@ -27,14 +28,16 @@ const CreateRecipes = () => {
                 <Plus size={20} /> Create Recipe
               </Link>
             </Button>
-            <Button size="lg" asChild>
-              <Link
-                href="/sign-in"
-                className="bg-white text-rose-600 hover:bg-gray-200 transition-all flex flex-row items-center gap-1.5"
-              >
-                <LogIn size={20} /> Sign In
-              </Link>
-            </Button>
+            <SignedOut>
+              <Button size="lg" asChild>
+                <Link
+                  href="/sign-in"
+                  className="bg-white text-rose-600 hover:bg-gray-200 transition-all flex flex-row items-center gap-1.5"
+                >
+                  <LogIn size={20} /> Sign In
+                </Link>
+              </Button>
+            </SignedOut>
           </div>
         </div>
         <div>

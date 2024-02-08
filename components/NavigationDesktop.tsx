@@ -12,12 +12,11 @@ import {
 } from "./ui/navigation-menu";
 import { SignedIn } from "@clerk/nextjs";
 import {
-  DollarSign,
-  Dumbbell,
+  Apple,
+  Banknote,
   Heart,
   Moon,
-  Sun,
-  User,
+  Sandwich,
   Utensils,
   Zap,
 } from "lucide-react";
@@ -44,7 +43,7 @@ const NavigationDesktop = () => {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md p-6 no-underline outline-none focus:shadow-md hover:text-rose-500 transition-all bg-neutral-100"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      <Utensils />
+                      <Utensils size={35} />
                     </div>
                     <div className="text-sm leading-tight">All Recipes</div>
                   </Link>
@@ -53,7 +52,7 @@ const NavigationDesktop = () => {
               <li>
                 <Link
                   href="/"
-                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md"
+                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-rose-500"
                 >
                   <div>
                     <Heart size={20} />
@@ -64,10 +63,10 @@ const NavigationDesktop = () => {
               <li>
                 <Link
                   href="/"
-                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md"
+                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-emerald-500"
                 >
                   <div>
-                    <DollarSign size={20} />
+                    <Banknote size={20} />
                   </div>
                   <p className="text-sm text-gray-700">Affordable</p>
                 </Link>
@@ -75,10 +74,10 @@ const NavigationDesktop = () => {
               <li>
                 <Link
                   href="/"
-                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md"
+                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-orange-500"
                 >
                   <div>
-                    <Sun size={20} />
+                    <Sandwich size={20} />
                   </div>
                   <p className="text-sm text-gray-700">Lunch</p>
                 </Link>
@@ -86,7 +85,7 @@ const NavigationDesktop = () => {
               <li>
                 <Link
                   href="/"
-                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md"
+                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-indigo-500"
                 >
                   <div>
                     <Moon size={20} />
@@ -97,7 +96,7 @@ const NavigationDesktop = () => {
               <li>
                 <Link
                   href="/"
-                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md"
+                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-yellow-500"
                 >
                   <div>
                     <Zap size={20} />
@@ -108,10 +107,10 @@ const NavigationDesktop = () => {
               <li>
                 <Link
                   href="/"
-                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md"
+                  className="flex flex-col gap-1 hover:bg-neutral-100 p-2 rounded-md hover:text-red-500"
                 >
                   <div>
-                    <Dumbbell size={20} />
+                    <Apple size={20} />
                   </div>
                   <p className="text-sm text-gray-700">Healthy</p>
                 </Link>
