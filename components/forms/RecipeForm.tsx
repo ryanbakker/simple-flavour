@@ -147,7 +147,7 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
 
         if (newRecipe) {
           form.reset();
-          router.push(`/meets/${newRecipe._id}`);
+          router.push(`/recipes/${newRecipe._id}`);
         }
       } catch (error) {
         console.error(error);
@@ -170,12 +170,12 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
             ingredients: ingredients,
             instructions: instructions,
           },
-          path: `/meets/${recipeId}`,
+          path: `/recipes/${recipeId}`,
         });
 
         if (updatedRecipe) {
           form.reset();
-          router.push(`/meets/${updatedRecipe._id}`);
+          router.push(`/recipes/${updatedRecipe._id}`);
         }
       } catch (error) {
         console.error(error);
@@ -184,10 +184,7 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
   }
 
   function onCancel() {
-    // Reset the form to its initial values
     form.reset();
-
-    // Example: Navigate back to the previous page
     router.back();
   }
 

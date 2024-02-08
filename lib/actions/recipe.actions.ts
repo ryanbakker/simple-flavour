@@ -53,7 +53,7 @@ export async function createRecipe({
   }
 }
 
-// Get meet by ID
+// Get recipe by ID
 export async function getRecipeById(recipeId: string) {
   try {
     try {
@@ -83,7 +83,7 @@ export async function updateRecipe({
 
     const recipeToUpdate = await Recipe.findById(recipe._id);
     if (!recipeToUpdate || recipeToUpdate.author.toHexString() !== userId) {
-      throw new Error("Unauthorized or meet not found");
+      throw new Error("Unauthorized or recipe not found");
     }
 
     const updatedRecipe = await Recipe.findByIdAndUpdate(
@@ -182,7 +182,7 @@ export async function getRecipesByUser({
 }
 
 // Get Related Recipes By Category
-export async function GetRelatedRecipesByCategory({
+export async function getRelatedRecipesByCategory({
   categoryId,
   recipeId,
   limit = 3,
