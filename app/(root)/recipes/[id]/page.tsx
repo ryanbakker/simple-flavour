@@ -59,7 +59,7 @@ const RecipePage = async ({
               </p>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 pt-8">
               <div className="flex flex-row gap-3">
                 <div className="flex flex-row items-center gap-3 bg-neutral-200 w-fit rounded-lg px-5 py-1.5">
                   <Clock size={26} />
@@ -137,11 +137,11 @@ const RecipePage = async ({
             <h2 className="text-xl font-serif text-slate-800 pb-5">
               Ingredients
             </h2>
-            <ul className="flex flex-col gap-1">
+            <ul className="flex flex-col gap-1 pr-20">
               {recipe.ingredients.map((ingredient: IIngredient) => (
                 <li
                   key={ingredient.name}
-                  className="flex flex-row gap-5 border-t border-gray-200 w-fit py-2 font-serif"
+                  className="flex flex-row gap-5 border-t border-gray-200 w-full py-2 font-serif"
                 >
                   <p className="w-[80px]">{ingredient.measurement}</p>
                   <p>{ingredient.name}</p>
@@ -155,9 +155,9 @@ const RecipePage = async ({
               {recipe.instructions.map((instruction: IStep, index: number) => (
                 <li
                   key={instruction.step}
-                  className="flex flex-row justify-between w-full"
+                  className="flex flex-row justify-start w-full"
                 >
-                  <p className="font-light text-slate-500 font-serif w-[120px]">
+                  <p className="font-light text-slate-500 font-serif w-[90px]">
                     Step {index + 1}
                   </p>
                   <p className="text-slate-800 font-serif max-w-[550px]">

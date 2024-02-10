@@ -2,17 +2,27 @@ export const carouselImages = [
   {
     id: "1",
     name: "Image",
-    path: "imageOne.jpg",
+    path: "one.jpg",
   },
   {
     id: "2",
     name: "Image",
-    path: "imageTwo.jpg",
+    path: "two.jpg",
   },
   {
     id: "3",
     name: "Image",
-    path: "imageThree.jpg",
+    path: "three.jpg",
+  },
+  {
+    id: "4",
+    name: "Image",
+    path: "four.jpg",
+  },
+  {
+    id: "5",
+    name: "Image",
+    path: "five.jpg",
   },
 ];
 

@@ -15,17 +15,18 @@ const Card = ({ recipe }: { recipe: IRecipe }) => {
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-darkBlue shadow-md transition-all hover:shadow-lg md:min-h-[438px] hover:scale-[1.02]">
       <Link href={`/recipes/${recipe._id}`} className="bg-neutral-100">
-        <div>
+        <div className="overflow-hidden object-fill">
           <Image
             src={recipe.imageUrl}
             alt={recipe.title}
             height={400}
             width={600}
+            className="max-h-[266px] object-fill object-center"
           />
         </div>
-        <div className="p-4 flex flex-col justify-between h-[172px]">
+        <div className="p-4 flex flex-col justify-between min-h-[172px]">
           <div>
-            <h4 className="text-xl font-serif font-medium text-slate-900 capitalize">
+            <h4 className="text-xl font-serif font-medium text-slate-900 capitalize line-clamp-1">
               {recipe.title}
             </h4>
             <p className="pt-2 font-light text-slate-800 line-clamp-2 text-sm">
