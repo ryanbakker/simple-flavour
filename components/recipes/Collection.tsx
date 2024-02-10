@@ -34,9 +34,9 @@ const Collection = ({
           )}
         </div>
       ) : (
-        <div className="flex items-center justify-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-lg bg-gradient-to-tr from-slate-800 to-slate-700 text-white py-28 text-center">
+        <div className="flex items-center justify-center wrapper min-h-[200px] w-full flex-col gap-3 rounded-lg bg-gradient-to-tr from-rose-300 via-rose-300 to-rose-50 text-rose-900 py-28 text-center border border-rose-600">
           <h3 className="font-semibold text-xl">{emptyTitle}</h3>
-          <p className="text-slate-200">{emptyStateSubtext}</p>
+          <p className="text-rose-700">{emptyStateSubtext}</p>
         </div>
       )}
     </>

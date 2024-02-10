@@ -30,8 +30,6 @@ const RecipePage = async ({
 
   const hasURL = recipe.url != "";
 
-  console.log(recipe);
-
   return (
     <article className="bg-neutral-100 h-full border-t border-gray-200">
       <section className="shadow-lg">

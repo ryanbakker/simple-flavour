@@ -14,7 +14,7 @@ export const recipeFormSchema = z.object({
   description: z
     .string()
     .min(3, "Description must be at least 3 characters")
-    .max(200, "Description must be less than 200 characters"),
+    .max(201, "Description must be less than 200 characters"),
   imageUrl: z.string(),
   ingredients: z.array(ingredientSchema),
   instructions: z.array(stepSchema),
@@ -23,6 +23,6 @@ export const recipeFormSchema = z.object({
   servingSize: z.string(),
   isVegetarian: z.boolean(),
   isVegan: z.boolean(),
-  notes: z.string(),
+  notes: z.string().max(201, "Notes but be less than 200 characters"),
   categoryId: z.string(),
 });

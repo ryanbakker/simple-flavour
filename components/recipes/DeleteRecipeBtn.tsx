@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import {
   AlertDialog,
@@ -18,6 +18,7 @@ import { deleteRecipe } from "@/lib/actions/recipe.actions";
 
 const DeleteRecipeBtn = ({ recipeId }: { recipeId: string }) => {
   const pathname = usePathname();
+  const router = useRouter();
   let [isPending, startTransition] = useTransition();
 
   return (
@@ -40,6 +41,8 @@ const DeleteRecipeBtn = ({ recipeId }: { recipeId: string }) => {
             onClick={() =>
               startTransition(async () => {
                 await deleteRecipe({ recipeId, path: pathname });
+
+                router.back();
               })
             }
           >

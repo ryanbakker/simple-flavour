@@ -46,6 +46,8 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
   const maxInstructions = 10;
 
   const [files, setFiles] = useState<File[]>([]);
+  const [descriptionCharCount, setDescriptionCharCount] = useState<number>(0);
+  const [notesCharCount, setNotesCharCount] = useState<number>(0);
 
   const [ingredients, setIngredients] = useState<Ingredient[]>([
     { measurement: "", name: "" },
@@ -54,6 +56,18 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
     { step: "" },
   ]);
   const router = useRouter();
+
+  const handleDescriptionChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const currentCharCount = event.target.value.length;
+    setDescriptionCharCount(currentCharCount);
+  };
+
+  const handleNotesChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const currentCharCount = event.target.value.length;
+    setNotesCharCount(currentCharCount);
+  };
 
   const handleAddIngredient = () => {
     if (ingredients.length < maxIngredients) {
@@ -234,7 +248,20 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
                           placeholder="Perfect for any number of servings..."
                           {...field}
                           className="h-[145px] resize-none overflow-auto"
+                          onChange={(e) => {
+                            field.onChange(e);
+                            handleDescriptionChange(e);
+                          }}
                         />
+                        <p
+                          className={`text-xs pt-2 ${
+                            descriptionCharCount > 200
+                              ? "text-rose-600"
+                              : "text-neutral-600"
+                          }`}
+                        >
+                          {`${descriptionCharCount} / 200 characters used`}
+                        </p>
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -537,11 +564,26 @@ const RecipeForm = ({ userId, type, recipe, recipeId }: RecipeFormProps) => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Textarea
-                    placeholder="Beef can be substituted with chicken..."
-                    {...field}
-                    className="h-[100px] resize-none overflow-auto"
-                  />
+                  <div>
+                    <Textarea
+                      placeholder="Beef can be substituted with chicken..."
+                      {...field}
+                      className="h-[100px] resize-none overflow-auto"
+                      onChange={(e) => {
+                        field.onChange(e);
+                        handleNotesChange(e);
+                      }}
+                    />
+                    <p
+                      className={`text-xs pt-2 ${
+                        notesCharCount > 200
+                          ? "text-rose-600"
+                          : "text-neutral-600"
+                      }`}
+                    >
+                      {`${notesCharCount} / 200 characters used`}
+                    </p>
+                  </div>
                 </FormControl>
               </FormItem>
             )}
